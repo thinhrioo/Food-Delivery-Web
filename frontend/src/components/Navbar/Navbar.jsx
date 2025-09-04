@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
-import { assets } from '../assets/assets'
+import { assets } from '../../assets/assets'
 import { FaShoppingCart, FaSearch } from 'react-icons/fa'
 
 const Navbar = () => {
+  const [menu, setMenu] = useState("home");
+
   return (
     <div className='navbar'>
       {/* Logo */}
@@ -11,10 +13,10 @@ const Navbar = () => {
 
       {/* Menu */}
       <ul className="navbar-menu">
-        <li>Home</li>
-        <li>Menu</li>
-        <li>Mobile App</li>
-        <li>Contact Us</li>
+        <li className={menu === "home" ? "active" : ""} onClick={() => setMenu("home")}>Home</li>
+        <li className={menu === "menu" ? "active" : ""} onClick={() => setMenu("menu")}>Menu</li>
+        <li className={menu === "mobile-app" ? "active" : ""} onClick={() => setMenu("mobile-app")}>Mobile App</li>
+        <li className={menu === "contact-us" ? "active" : ""} onClick={() => setMenu("contact-us")}>Contact Us</li>
       </ul>
 
       {/* Actions: Search + Cart + Sign In */}
