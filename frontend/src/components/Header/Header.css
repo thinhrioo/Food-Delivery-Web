@@ -27,7 +27,7 @@
   color: rgb(255, 255, 255);
   padding-left: 50px;
   z-index: 2;
-  animation: fadeIn 3s;
+  animation: fadeIn 4s;
 }
 
 .header-contents h2 {

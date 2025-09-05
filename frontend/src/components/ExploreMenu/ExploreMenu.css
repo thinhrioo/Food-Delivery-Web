@@ -1,0 +1,58 @@
+.explore-menu {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.explore-menu-text {
+  max-width: 600px;
+  margin: 10px auto 30px;
+  font-size: 16px;
+  color: #555;
+}
+
+.explore-menu-list {
+  display: flex;
+  justify-content: center;   /* Căn giữa ngang */
+  align-items: center;
+  gap: 30px;
+  overflow-x: auto;          /* Cho phép kéo ngang */
+  padding: 20px;
+  scroll-behavior: smooth;   /* Cuộn mượt */
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;  /* Ẩn scrollbar để gọn hơn */
+}
+
+.explore-menu-list-item {
+  flex: 0 0 auto;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.explore-menu-list-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.explore-menu-list-item.active img {
+  border: 3px solid #ff6b00;  /* màu viền khi active */
+  transform: scale(1.1);
+}
+
+.explore-menu-list-item p {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+.explore-menu-list-item.active p {
+  color: #ff6b00;
+  font-weight: 600;
+}
