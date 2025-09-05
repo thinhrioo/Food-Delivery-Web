@@ -32,10 +32,18 @@ import pastaFettuccineAlfredo from './images/pastaFettuccineAlfredo.jpg';
 import noodlesPadThai from './images/noodlesPadThai.jpg';
 import noodlesRamen from './images/noodlesRamen.jpg';
 import noodlesStirFriedUdon from './images/noodlesStirFriedUdon.jpg';
+import rating_stars from './images/rating_stars.png';
+import add_icon_black from './images/add_icon_black.png';
+import remove_icon_red from './images/remove_icon_red.png';
+import add_icon_green from './images/add_icon_green.png';
 // Export ra một object để dùng lại
 export const assets = {
     logo,
     header,
+    rating_stars,
+    add_icon_black,
+    remove_icon_red,
+    add_icon_green
 };
 
 export const menu_list = [
