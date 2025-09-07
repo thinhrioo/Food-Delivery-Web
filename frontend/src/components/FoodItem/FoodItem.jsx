@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext} from 'react'
 import './FoodItem.css'
 import { assets } from '../../assets/assets';
-
+import { StoreContext } from '../../context/StoreContext';
 const FoodItem = ({ id, name, price, description, image }) => {
-  const [itemCount, setItemCount] = useState(0);
+  // State lưu số lượng sản phẩm đã chọn
+  // Mặc định = 0 (chưa thêm vào giỏ)
 
+  const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
   return (
     <div className='food-item'>
       <div className='food-item-img-container'>
@@ -16,31 +18,33 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <p>{name}</p>
           <img className="rating-stars" src={assets.rating_stars} alt="rating" />
         </div>
-
         <p className='food-item-desc'>{description}</p>
-
         <div className='food-item-footer'>
           <p className='food-item-price'>${price}</p>
-
-          {!itemCount ? (
+          {/* Nếu itemCount = 0 → chỉ hiện 1 nút thêm (+) màu đen */}
+          {!cartItems[id] ? (
             <img
               className='add-icon'
-              onClick={() => setItemCount(prev => prev + 1)}
+              onClick={() => addToCart(id)} // tăng số lượng từ 0 → 1
               src={assets.add_icon_black}
               alt="add"
             />
           ) : (
+            // Nếu itemCount > 0 → hiện bộ đếm (nút - số lượng +)
             <div className='food-item-counter'>
+              {/* Nút trừ (giảm số lượng, tối thiểu = 0) */}
               <img
                 className="remove-icon"
-                onClick={() => setItemCount(prev => Math.max(prev - 1, 0))}
+                onClick={() => removeFromCart(id)}
                 src={assets.remove_icon_red}
                 alt="remove"
               />
-              <p>{itemCount}</p>
+              {/* Hiển thị số lượng hiện tại */}
+              <p>{cartItems[id]}</p>
+              {/* Nút cộng (tăng số lượng) */}
               <img
                 className="add-icon"
-                onClick={() => setItemCount(prev => prev + 1)}
+                onClick={() => addToCart(id)}
                 src={assets.add_icon_green}
                 alt="add"
               />
