@@ -5,6 +5,7 @@
   padding: 12px 70px;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .logo {
@@ -28,6 +29,11 @@
   color: #ff6600; /* đổi màu khi hover */
 }
 
+.navbar-menu li.active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid black;
+}
+
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -44,20 +50,112 @@
 }
 
 .signin-btn {
-  background: transparent; 
+  background: transparent;
   font-size: 16px;
   color: black;
-  border: 1px solid tomato; 
-  padding: 10px 30px; 
+  border: 1px solid tomato;
+  padding: 10px 30px;
   border-radius: 50px;
-   cursor: pointer; 
-   transition: 0;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .signin-btn:hover {
   background: #e65c00;
+  color: #fff;
 }
-.navbar-menu li.active {
-  padding-bottom: 2px;
-  border-bottom: 2px solid black;
+
+/* Hamburger mặc định ẩn */
+.hamburger {
+  margin-top: 3px;
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 12px 40px;
+  }
+
+  .navbar-menu {
+    gap: 16px;
+  }
+
+  .signin-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row; /* giữ logo và actions ngang hàng */
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    position: relative;
+  }
+
+  /* hiện hamburger */
+  .hamburger {
+    display: block;
+    z-index: 20;
+    margin-left: auto;
+  }
+
+  /* menu ẩn mặc định */
+  .navbar-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* ngay dưới navbar */
+    right: 0;
+    background: #fff;
+    width: 220px; /* menu dạng popup */
+    gap: 16px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 15;
+  }
+
+  /* khi mở */
+  .navbar-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-actions {
+    gap: 12px;
+  }
+
+  .signin-btn {
+    flex: none;
+    text-align: center;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .logo {
+    width: 60px;
+  }
+
+  .navbar-menu {
+    font-size: 14px;
+    width: 180px;
+    padding: 15px;
+  }
+
+  .signin-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
 }

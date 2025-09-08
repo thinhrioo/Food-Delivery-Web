@@ -1,0 +1,79 @@
+.footer {
+  background-color: #1a1a1a; /* nền tối */
+  color: #fff;
+  padding: 50px 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.footer-content-left,
+.footer-content-center,
+.footer-content-right {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px 20px;
+}
+
+.footer-content-left img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.footer-content-left p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-social-icons img {
+  width: 35px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.footer-social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-content-center h2,
+.footer-content-right h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-content-center ul,
+.footer-content-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-content-center li,
+.footer-content-right li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-content-center li:hover,
+.footer-content-right li:hover {
+  color: tomato;
+}
+
+.footer-copyright {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+}

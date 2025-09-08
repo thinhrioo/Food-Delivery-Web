@@ -36,6 +36,10 @@ import rating_stars from './images/rating_stars.png';
 import add_icon_black from './images/add_icon_black.png';
 import remove_icon_red from './images/remove_icon_red.png';
 import add_icon_green from './images/add_icon_green.png';
+import facebook_icon from './images/facebook_icon.png';
+import tiktok_icon from './images/tiktok_icon.png';
+import instagram_icon from './images/instagram_icon.png';
+import youtube_icon from './images/youtube_icon.png';
 // Export ra một object để dùng lại
 export const assets = {
     logo,
@@ -43,7 +47,11 @@ export const assets = {
     rating_stars,
     add_icon_black,
     remove_icon_red,
-    add_icon_green
+    add_icon_green,
+    facebook_icon,
+    tiktok_icon,
+    instagram_icon,
+    youtube_icon
 };
 
 export const menu_list = [
