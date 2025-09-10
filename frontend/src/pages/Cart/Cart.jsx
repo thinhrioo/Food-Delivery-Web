@@ -1,29 +1,32 @@
 import React, { useContext } from "react";
-import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
-import { FaTrash } from "react-icons/fa";
+import "./Cart.css";
 
 const Cart = () => {
-  const { cartItems, food_list, addToCart, removeFromCart } =
-    useContext(StoreContext);
+  const { cartItems, food_list, setCartItems, removeFromCart } = useContext(StoreContext);
 
-  // Lọc ra các món có trong cart
-  // const cartData = food_list.filter((item) => cartItems[item._id] > 0);
+  // Lọc sản phẩm trong giỏ
+  const cartFood = food_list.filter((item) => cartItems[item.id] > 0);
 
-  // const getTotalPrice = () => {
-  //   return cartData.reduce(
-  //     (total, item) => total + item.price * cartItems[item._id],
-  //     0
-  //   );
-  // };
+  // Tính tổng giỏ hàng
+  const totalPrice = cartFood.reduce(
+    (sum, item) => sum + item.price * cartItems[item.id],
+    0
+  );
+
+  // Cập nhật số lượng trực tiếp
+  const handleQuantityChange = (itemId, value) => {
+    const qty = Math.max(1, parseInt(value) || 1); // tối thiểu = 1
+    setCartItems((prev) => ({ ...prev, [itemId]: qty }));
+  };
 
   return (
     <div className="cart">
-      <h2>Your Cart</h2>
+      <h2>🛒 Your Cart</h2>
 
-      {/* {cartData.length === 0 ? (
-        <p className="empty-cart">Your cart is empty.</p>
-      ) : ( */}
+      {cartFood.length === 0 ? (
+        <p>Giỏ hàng trống</p>
+      ) : (
         <table className="cart-table">
           <thead>
             <tr>
@@ -36,40 +39,48 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {food_list.map((item) => (
-              <tr key={item._id}>
+            {cartFood.map((item) => (
+              <tr key={item.id}>
                 <td>
                   <img src={item.image} alt={item.name} className="cart-img" />
                 </td>
                 <td>{item.name}</td>
                 <td>${item.price}</td>
-                <td className="quantity">
-                  <button onClick={() => removeFromCart(item._id)}>-</button>
-                  <span>{cartItems[item._id]}</span>
-                  <button onClick={() => addToCart(item._id)}>+</button>
-                </td>
-                <td>${item.price * cartItems[item._id]}</td>
                 <td>
-                  <FaTrash
-                    className="remove-icon"
-                    onClick={() =>
-                      removeFromCart(item._id) // giảm quantity, nếu muốn xoá luôn => setCartItems
+                  <input
+                    type="number"
+                    min="1"
+                    value={cartItems[item.id]}
+                    onChange={(e) =>
+                      handleQuantityChange(item.id, e.target.value)
                     }
                   />
+                </td>
+                <td>${(item.price * cartItems[item.id]).toFixed(2)}</td>
+                <td>
+                  <button
+                    className="remove-btn"
+                    onClick={() => {
+                      const updated = { ...cartItems };
+                      delete updated[item.id]; // xoá khỏi giỏ
+                      setCartItems(updated);
+                    }}
+                  >
+                    ❌
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      {/* )} */}
+      )}
 
-      {/* Tổng cộng */}
-      {/* {cartData.length > 0 && (
+      {cartFood.length > 0 && (
         <div className="cart-summary">
-          <h3>Total: ${getTotalPrice()}</h3>
-          <button className="checkout-btn">Proceed to Checkout</button>
+          <h3>Grand Total: ${totalPrice.toFixed(2)}</h3>
+          <button className="checkout-btn">Checkout</button>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

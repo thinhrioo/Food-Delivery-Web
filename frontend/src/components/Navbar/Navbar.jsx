@@ -11,7 +11,7 @@ const Navbar = ({ setShowLogin }) => {   // ✅ destructuring props đúng cách
   return (
     <div className='navbar'>
       {/* Logo */}
-      <img src={assets.logo} alt="Logo" className='logo' />
+     <Link to='/' ><img src={assets.logo} alt="Logo" className='logo' /></Link>
 
       {/* Hamburger button */}
       <div className="hamburger" onClick={() => setOpen(!open)}>
@@ -20,7 +20,7 @@ const Navbar = ({ setShowLogin }) => {   // ✅ destructuring props đúng cách
 
       {/* Menu */}
       <ul className={`navbar-menu ${open ? "open" : ""}`}>
-        <li className={menu === "home" ? "active" : ""} onClick={() => { setMenu("home"); setOpen(false) }}>Home</li>
+       <Link to='/' className={menu === "home" ? "active" : ""} onClick={() => { setMenu("home"); setOpen(false) }}>Home</Link>
         <li className={menu === "menu" ? "active" : ""} onClick={() => { setMenu("menu"); setOpen(false) }}>Menu</li>
         <li className={menu === "mobile-app" ? "active" : ""} onClick={() => { setMenu("mobile-app"); setOpen(false) }}>Mobile App</li>
         <li className={menu === "contact-us" ? "active" : ""} onClick={() => { setMenu("contact-us"); setOpen(false) }}>Contact Us</li>
