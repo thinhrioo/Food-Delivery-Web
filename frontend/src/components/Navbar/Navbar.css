@@ -64,6 +64,24 @@
   background: #e65c00;
   color: #fff;
 }
+/* Wrapper cart icon để định vị badge */
+.cart-icon-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Badge đỏ nhỏ */
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background: #f24c3d;
+  border-radius: 50%;
+  border: 2px solid #fff; /* để có viền trắng đẹp */
+}
+
 
 /* Hamburger mặc định ẩn */
 .hamburger {
