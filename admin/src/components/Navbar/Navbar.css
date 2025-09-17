@@ -1,0 +1,29 @@
+.navbar {
+  height: 60px;
+  background: #1e293b; /* xanh đậm */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-left h2 {
+  margin: 0;
+}
+
+.logo {
+  height: 40px;
+}
+
+.profile {
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

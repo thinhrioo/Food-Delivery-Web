@@ -1,0 +1,53 @@
+.add-item {
+  flex: 1;
+  padding: 30px;
+}
+
+.add-form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-box {
+  border: 1px dashed #aaa;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 150px;
+}
+.upload-label {
+  cursor: pointer;
+}
+.preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.form-inline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+input, textarea, select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: tomato;
+}

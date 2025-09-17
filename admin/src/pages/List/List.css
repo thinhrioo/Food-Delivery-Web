@@ -1,0 +1,47 @@
+.list-page {
+  padding: 20px;
+}
+
+.list-page h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-table th,
+.list-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.list-table th {
+  background-color: #f4f4f4;
+}
+
+.list-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 8px 12px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
