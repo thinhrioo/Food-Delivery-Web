@@ -1,0 +1,63 @@
+/* App.css */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  margin-top: 70px; /* Chiều cao của navbar */
+}
+
+.page-content {
+  flex: 1;
+  margin-left: 250px; /* Chiều rộng của sidebar */
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 70px);
+}
+
+/* Đảm bảo các trang con có padding phù hợp */
+.page-container {
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  min-height: calc(100vh - 130px);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .page-content {
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 60px;
+  }
+  
+  .page-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+  
+  .page-container {
+    padding: 20px;
+    min-height: calc(100vh - 110px);
+  }
+}
+
+@media (max-width: 576px) {
+  .page-content {
+    padding: 10px;
+  }
+  
+  .page-container {
+    padding: 15px;
+  }
+}

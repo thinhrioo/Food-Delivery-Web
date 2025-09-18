@@ -1,29 +1,87 @@
-.navbar {
-  height: 60px;
-  background: #1e293b; /* xanh đậm */
-  color: white;
+/* Navbar.css - với độ đặc hiệu cao */
+
+.admin-navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
 }
 
-.navbar-left {
+.admin-navbar .navbar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.navbar-left h2 {
-  margin: 0;
-}
-
-.logo {
-  height: 40px;
-}
-
-.profile {
-  height: 40px;
+.admin-navbar .navbar-logo {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-navbar .navbar-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.admin-navbar .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar .profile-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-navbar .profile-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .admin-navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  .admin-navbar .navbar-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .admin-navbar .navbar-title {
+    font-size: 18px;
+  }
+  
+  .admin-navbar .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-navbar .navbar-title {
+    display: none;
+  }
 }

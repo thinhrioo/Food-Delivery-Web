@@ -1,47 +1,196 @@
+/* List.css */
+
 .list-page {
-  padding: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 .list-page h2 {
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.list-page h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  border-radius: 2px;
 }
 
 .list-table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.list-table th,
-.list-table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
+.list-table thead {
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  color: white;
 }
 
 .list-table th {
-  background-color: #f4f4f4;
+  padding: 18px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.list-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.list-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.list-table tbody tr:hover {
+  background-color: #f1f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.list-table td {
+  padding: 16px 15px;
+  color: #555;
+  font-size: 15px;
 }
 
 .list-img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.list-img:hover {
+  transform: scale(1.1);
 }
 
 .delete-btn {
-  background: #e74c3c;
+  background: linear-gradient(to right, #ff6b6b, #ee5a52);
+  color: white;
   border: none;
-  padding: 8px 12px;
-  color: #fff;
+  padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(238, 90, 82, 0.2);
 }
 
 .delete-btn:hover {
-  background: #c0392b;
+  background: linear-gradient(to right, #ee5a52, #ff5252);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(238, 90, 82, 0.3);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .list-page {
+    padding: 20px;
+  }
+  
+  .list-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .list-table th, 
+  .list-table td {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  
+  .list-img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .list-page h2 {
+    font-size: 26px;
+  }
+  
+  .list-table th {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .list-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .delete-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .list-img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animation for table rows */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-table tbody tr {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.list-table tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.list-table tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.list-table tbody tr:nth-child(3) { animation-delay: 0.15s; }
+.list-table tbody tr:nth-child(4) { animation-delay: 0.2s; }
+.list-table tbody tr:nth-child(5) { animation-delay: 0.25s; }
+.list-table tbody tr:nth-child(6) { animation-delay: 0.3s; }
+.list-table tbody tr:nth-child(7) { animation-delay: 0.35s; }
+.list-table tbody tr:nth-child(8) { animation-delay: 0.4s; }
+.list-table tbody tr:nth-child(9) { animation-delay: 0.45s; }
+.list-table tbody tr:nth-child(10) { animation-delay: 0.5s; }
+
+/* Empty state styling */
+.list-table tbody tr td[colspan] {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 18px;
 }

@@ -1,31 +1,130 @@
-.sidebar {
-  width: 220px;
-  min-height: 100vh;
-  background: #fff;
-  border-right: 1px solid #ddd;
-  padding: 20px;
+/* Sidebar.css - với độ đặc hiệu cao */
+
+.admin-sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2c3e50, #34495e);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 80px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 90;
 }
-.sidebar .logo {
-  color: tomato;
-  margin-bottom: 30px;
+
+.admin-sidebar .sidebar-logo {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 0 20px 30px;
+  margin: 0;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
-.sidebar .sub {
+
+.admin-sidebar .sidebar-subtitle {
   display: block;
   font-size: 12px;
-  color: #888;
+  font-weight: 400;
+  color: #ecf0f1;
+  margin-top: 5px;
+  opacity: 0.8;
 }
-.sidebar ul {
+
+.admin-sidebar .sidebar-menu {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-.sidebar li {
-  margin: 15px 0;
+
+.admin-sidebar .sidebar-item {
+  margin: 0;
+  padding: 0;
 }
-.sidebar a {
+
+.admin-sidebar .sidebar-link {
+  display: block;
+  padding: 15px 20px;
+  color: #ecf0f1;
   text-decoration: none;
-  color: #333;
+  font-size: 16px;
   font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
 }
-.sidebar a:hover {
-  color: tomato;
+
+.admin-sidebar .sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: #3498db;
+  padding-left: 25px;
 }
+
+.admin-sidebar .sidebar-link:active,
+.admin-sidebar .sidebar-link:focus {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-left-color: #2ecc71;
+}
+
+/* Active link styling */
+.admin-sidebar .sidebar-link.active {
+  background-color: rgba(52, 152, 219, 0.3);
+  border-left-color: #2ecc71;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    width: 220px;
+    padding-top: 70px;
+  }
+  
+  .admin-sidebar .sidebar-logo {
+    font-size: 20px;
+    padding: 0 15px 25px;
+  }
+  
+  .admin-sidebar .sidebar-subtitle {
+    font-size: 11px;
+  }
+  
+  .admin-sidebar .sidebar-link {
+    padding: 13px 15px;
+    font-size: 15px;
+  }
+  
+  .admin-sidebar .sidebar-link:hover {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .admin-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+}
+
+/* Animation for sidebar items */
+@keyframes sidebarSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.admin-sidebar .sidebar-item {
+  animation: sidebarSlideIn 0.4s ease forwards;
+}
+
+.admin-sidebar .sidebar-item:nth-child(1) { animation-delay: 0.1s; }
+.admin-sidebar .sidebar-item:nth-child(2) { animation-delay: 0.2s; }
+.admin-sidebar .sidebar-item:nth-child(3) { animation-delay: 0.3s; }
